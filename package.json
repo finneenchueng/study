@@ -1,0 +1,37 @@
+{
+  "name": "practise",
+  "version": "1.0.0",
+  "description": "this is a prictise directory",
+  "main": "entry.js",
+  "dependencies": {
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "jasmine-core": "^2.9.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mackcheung/study.git"
+  },
+  "keywords": [
+    "practise"
+  ],
+  "author": "finneen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mackcheung/study/issues"
+  },
+  "homepage": "https://github.com/mackcheung/study#readme"
+}

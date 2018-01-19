@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>点赞插件</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="/source/thumb/css/reset.css" rel="stylesheet" />
+    <link href="/source/thumb/css/thumb.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    
+</head>
+
+<body>
+    <div class="box">
+        <div class="row">
+            <div class="col-flex">
+                <div class="col-item title-block">
+                    <span class="lbl-title">svg:</span>
+                    <span class="lbl-logo">
+    					<?xml version="1.0" standalone="no"?>
+						<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+							<svg t="1516020842231" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2318" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+							    <defs>
+							        <style type="text/css"></style>
+							    </defs>
+							    <path d="M866.272 382.336c-15.584-19.296-39.872-30.336-66.592-30.336h-164.992c23.168-67.232 5.376-145.024 4.352-149.312a30.944 30.944 0 0 0-4.928-10.656A95.808 95.808 0 0 0 544 128a95.84 95.84 0 0 0-95.456 90.72H448V240a111.328 111.328 0 0 1-37.984 83.392c-16 14.208-35.904 23.776-58.016 26.976V864h384.16c32.352 0 63.04-24.96 69.888-56.8l75.904-354.208c5.504-25.76-0.192-51.488-15.68-70.656M192.192 352C156.8 352 128 380.8 128 416.224v383.552C128 835.168 156.64 864 191.84 864H288V352H192.192z" p-id="2319">
+							    	
+							    </path>
+							</svg>
+					</span>
+                </div>
+            </div>
+            <div class="col-flex">
+                <div class="col-item demo-block">
+                    <a href="javascript:;" id="thumb_btn" class="thumb-box">
+    					<span class="thumb-show">
+    						<?xml version="1.0" standalone="no"?>
+							<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+							
+								<svg t="1516020842231" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2318" xmlns:xlink="http://www.w3.org/1999/xlink">
+							    <defs>
+							        <style type="text/css"></style>
+							    </defs>
+							    <path d="M866.272 382.336c-15.584-19.296-39.872-30.336-66.592-30.336h-164.992c23.168-67.232 5.376-145.024 4.352-149.312a30.944 30.944 0 0 0-4.928-10.656A95.808 95.808 0 0 0 544 128a95.84 95.84 0 0 0-95.456 90.72H448V240a111.328 111.328 0 0 1-37.984 83.392c-16 14.208-35.904 23.776-58.016 26.976V864h384.16c32.352 0 63.04-24.96 69.888-56.8l75.904-354.208c5.504-25.76-0.192-51.488-15.68-70.656M192.192 352C156.8 352 128 380.8 128 416.224v383.552C128 835.168 156.64 864 191.84 864H288V352H192.192z" p-id="2319">
+							    	
+							    </path>
+							</svg>
+						</span>
+						<strong class="thumb-count">0</strong>
+    				</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script type="text/javascript" src="/source/thumb/js/thumb.js"></script> -->
+    <script type="text/javascript" >
+      System.import('/source/thumb/js/thumb.js')
+             .catch(function(err){ 
+                console.error(err); 
+             });
+</script>
+</body>
+
+</html>

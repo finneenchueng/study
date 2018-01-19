@@ -1,0 +1,50 @@
+.box{
+	width:80%;
+	margin:20% auto 0 auto;
+}
+.row{
+	padding: 0 15px;
+}
+.col-flex{
+	display: flex;
+}
+.col-item{
+	flex:1;
+}
+.title-block{
+	
+}
+.title-block .lbl-title{
+	
+}
+.title-block .lbl-logo{
+	
+}
+.title-block svg{
+	vertical-align: middle;
+}
+
+.demo-block{
+	text-align: center;
+
+}
+.demo-block .thumb-box{
+	text-align: center;
+	text-decoration: none;
+	color:inherit;
+}
+.thumb-box .thumb-show{
+	display: inline-block;
+	width:30px;
+}
+.thumb-box .thumb-count{
+	vertical-align: middle;
+}
+.demo-block .thumb-box svg{
+	width:100%;
+	fill: #9ED99D;
+	vertical-align: middle;
+}
+.demo-block .thumb-box:hover svg{
+	fill: #09bb07;
+}
