@@ -1,3 +1,16 @@
+// import EventTarget from 'event-observer.js'
+// import library from 'library.js'
+
+class LibCollector {
+	constructor() {
+		
+	}
+	thumbCount(num){
+		return ++num;
+	}
+	
+	
+}
 class EventTarget {
 	constructor() {
 		this.messages = {};
@@ -21,15 +34,19 @@ class EventTarget {
 			return false;　　　　
 		this.messages[type].splice(i, 1);
 	}
+	
 }
-
+let library=new LibCollector();
 class PraiseAct {
 	constructor() {
 		this.count = 0;
 	}
 	doCount() {
-		this.count++;
-		console.log(this.count);
+		this.count=library.thumbCount(this.count);
+		this.doCountCallBack();
+	}
+	doCountCallBack(){
+
 	}
 }
 
@@ -75,8 +92,7 @@ class ThumbsUp extends PraiseAct {
 		}
 
 	}
-	doCount(e) {
-		this.count++;
+	doCountCallBack() {
 		this.emitEvent.emit("count");
 	}
 }

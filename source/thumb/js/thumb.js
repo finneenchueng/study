@@ -8,6 +8,24 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// import EventTarget from 'event-observer.js'
+// import library from 'library.js'
+
+var LibCollector = function () {
+	function LibCollector() {
+		_classCallCheck(this, LibCollector);
+	}
+
+	_createClass(LibCollector, [{
+		key: "thumbCount",
+		value: function thumbCount(num) {
+			return ++num;
+		}
+	}]);
+
+	return LibCollector;
+}();
+
 var EventTarget = function () {
 	function EventTarget() {
 		_classCallCheck(this, EventTarget);
@@ -44,6 +62,8 @@ var EventTarget = function () {
 	return EventTarget;
 }();
 
+var library = new LibCollector();
+
 var PraiseAct = function () {
 	function PraiseAct() {
 		_classCallCheck(this, PraiseAct);
@@ -54,9 +74,12 @@ var PraiseAct = function () {
 	_createClass(PraiseAct, [{
 		key: "doCount",
 		value: function doCount() {
-			this.count++;
-			console.log(this.count);
+			this.count = library.thumbCount(this.count);
+			this.doCountCallBack();
 		}
+	}, {
+		key: "doCountCallBack",
+		value: function doCountCallBack() {}
 	}]);
 
 	return PraiseAct;
@@ -114,9 +137,8 @@ var ThumbsUp = function (_PraiseAct) {
 			}
 		}
 	}, {
-		key: "doCount",
-		value: function doCount(e) {
-			this.count++;
+		key: "doCountCallBack",
+		value: function doCountCallBack() {
 			this.emitEvent.emit("count");
 		}
 	}]);
@@ -124,6 +146,7 @@ var ThumbsUp = function (_PraiseAct) {
 	return ThumbsUp;
 }(PraiseAct);
 // new ThumbsUp("thumb_btn");
+//改成es6形式this变成undefined
 
 
 (function ($) {
