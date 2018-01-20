@@ -98,7 +98,7 @@ class ThumbsUp extends PraiseAct {
 }
 // new ThumbsUp("thumb_btn");
 //改成es6形式this变成undefined
-if(jQuery){
+if(typeof jQuery==='object'){
 	(function($){
 		$.fn.extend({
 			startThumbAction: function() {
