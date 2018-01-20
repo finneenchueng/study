@@ -98,15 +98,17 @@ class ThumbsUp extends PraiseAct {
 }
 // new ThumbsUp("thumb_btn");
 //改成es6形式this变成undefined
-(function($){
-	$.fn.extend({
-		startThumbAction: function() {
-			let thumbsAction=new ThumbsUp($(this));
-			$(this).click((e)=>{
-				thumbsAction.doCount(e);
-			});
-		}
-	});
+if(jQuery){
+	(function($){
+		$.fn.extend({
+			startThumbAction: function() {
+				let thumbsAction=new ThumbsUp($(this));
+				$(this).click((e)=>{
+					thumbsAction.doCount(e);
+				});
+			}
+		});
 
-})(jQuery);
-$("#thumb_btn").startThumbAction();
+	})(jQuery);
+	$("#thumb_btn").startThumbAction();
+}

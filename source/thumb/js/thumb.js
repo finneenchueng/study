@@ -149,14 +149,16 @@ var ThumbsUp = function (_PraiseAct) {
 //改成es6形式this变成undefined
 
 
-(function ($) {
-	$.fn.extend({
-		startThumbAction: function startThumbAction() {
-			var thumbsAction = new ThumbsUp($(this));
-			$(this).click(function (e) {
-				thumbsAction.doCount(e);
-			});
-		}
-	});
-})(jQuery);
-$("#thumb_btn").startThumbAction();
+if (jQuery) {
+	(function ($) {
+		$.fn.extend({
+			startThumbAction: function startThumbAction() {
+				var thumbsAction = new ThumbsUp($(this));
+				$(this).click(function (e) {
+					thumbsAction.doCount(e);
+				});
+			}
+		});
+	})(jQuery);
+	$("#thumb_btn").startThumbAction();
+}
