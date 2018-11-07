@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>modal</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css">
+	.ex-modal{
+		position: fixed;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    z-index: 1050;
+	    display: block;
+	    overflow: hidden;
+	    -webkit-overflow-scrolling: touch;
+	    outline: 0;
+	}
+	.ex-dialog{
+		position: absolute;
+		width: 800px;
+	    top: 50%;
+	    left: 50%;
+	    transform: translateX(-50%) translateY(-50%) !important;
+	    -webkit-transform: translateX(-50%) translateY(-50%) !important;
+	}
+	.ex-content{
+		display: flex;
+	    flex-direction: column;
+	    width: 100%;
+	    pointer-events: auto;
+	    background-color: #fff;
+	    background-clip: padding-box;
+	    border: 1px solid rgba(0,0,0,.2);
+	    border-radius: .3rem;
+	    outline: 0;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+	}
+	.ex-header{
+		display: flex;
+	    align-items: flex-start;
+	    justify-content: space-between;
+	    padding: 1rem;
+
+	}
+	.ex-header .close{
+	    float: right;
+	    font-size: 1.5rem;
+	    font-weight: 700;
+	    line-height: 1;
+	    color: #000;
+	    text-shadow: 0 1px 0 #fff;
+	    opacity: .5;
+	    padding: 1rem;
+    	margin: -1rem -1rem -1rem auto;
+    	cursor: pointer;
+    	background-color: transparent;
+	    border: 0;
+	    -webkit-appearance: none;
+	}
+	.ex-body{
+		padding: 1.5em 3rem;
+		position: relative;
+	}
+	.ex-body-lbl{
+		color: #007bff;
+	    text-decoration: none;
+	    background-color: transparent;
+	    -webkit-text-decoration-skip: objects;
+	}
+	.ex-list-items{
+		padding: 1em;
+	}
+	.ex-list-items ul,.ex-list-items li{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.ex-list-items li{
+		padding-bottom: 10px 0;
+	}
+	.ex-list-items input[type='checkbox']{
+		width: 2em;
+		height: 2em;
+		outline: none;
+		vertical-align: middle;
+		background: #fff;
+		border: 1px solid rgba(0,0,0,.2);
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		position: relative;
+	}
+	.ex-list-items input[type='checkbox']:checked{
+		
+		background: #007bff;
+	}
+	.ex-list-items input[type='checkbox']:checked:after{
+		width: 1.3em;
+		height: .7em;
+		content: '';
+		position: absolute;
+		border-left: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		top: .3em;
+		left: .3em;
+		transform: rotate(-45deg);
+	}
+	.ex-list-items .lbl-text{
+		
+		font-size: 1.2em;
+	}
+	.ex-pre-list-box{
+		border: 1px solid rgba(0,0,0,.2);
+	    outline: 0;
+		box-shadow:0 0 6px 1px rgba(0, 0, 0, .2);
+		width: 26%;
+		max-height: 180px;
+		overflow-y: auto;
+	}
+	.ex-pub-list-box{
+		border: 1px solid rgba(0,0,0,.2);
+	    outline: 0;
+		box-shadow:0 0 6px 1px rgba(0, 0, 0, .2);
+		position: absolute;
+		top: -2.3em;
+		right: 2.1em;
+		z-index: 12;
+		width: 26%;
+	}
+	.ex-version{
+		font-weight: 400;
+		font-size: 1.1em;
+		margin-top: 2px;
+	}
+	.ex-version span{
+		display: inline-block;
+		padding-right: 1em;
+	}
+	.ex-footer{
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    padding: 1rem;
+	}
+	.ex-btn{
+		display: inline-block;
+	    padding: 10px 22px;
+	    font-size: 1em;
+	    margin-bottom: 0;
+	    font-weight: normal;
+	    line-height: 1.42857143;
+	    text-align: center;
+	    white-space: nowrap;
+	    vertical-align: middle;
+	    -ms-touch-action: manipulation;
+	    touch-action: manipulation;
+	    cursor: pointer;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    background-image: none;
+	    border: 1px solid transparent;
+	    margin-left: 3em;
+	    outline: none;
+	}
+	.ex-btn.primary{
+		background-color: #007bff;
+		border: 1px solid #007bff;
+		color: #fff;
+	}
+	.ex-btn.disabled{
+		border: 1px solid rgba(218, 218, 218, 1);
+		color: rgba(218, 218, 218, .8);
+	}
+</style>
+</head>
+<body>
+    <div class="ex-modal">
+    	<div class="ex-dialog">
+    		<div class="ex-content">
+    			<div class="ex-header">
+    				<div class="modal-title" >publish robot</div>
+			        <button type="button" class="close" >
+			          <span>×</span>
+			        </button>
+    			</div>
+    			<div class="ex-body">
+    				<div class="ex-body-lbl">choose the domains to publish to</div>
+    				<div class="ex-list-items ex-pre-list-box">
+    					<ul>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+    					</ul>
+    				</div> 
+    				<div class="ex-list-items ex-pub-list-box">
+						<ul>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+							<li>
+								<input type="checkbox" />	
+								<span class="lbl-text">General</span>
+							</li>
+    					</ul>
+    				</div> 
+    				<div class="ex-version">version<span>:</span>3.9.0</div>
+    			</div>
+    			<div class="ex-footer">
+    				<button class="ex-btn primary">validate</button>
+    				<button class="ex-btn disabled">cancel</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</body>
+</html>
